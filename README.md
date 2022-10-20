@@ -12,4 +12,4 @@
 
 ## **_My Process_**
 
-### First, I created my diagram so I can envision how it will turn out. Then I created my client files for the frontend work and I will create the files for the backend such as the models and controllers.
+### First, I created my diagram so I can envision how it will turn out. Then I created my files such as the models and controllers for the backend work and I will create the files for the frontend such as the client folders with react dependencies.
