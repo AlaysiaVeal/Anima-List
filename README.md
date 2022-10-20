@@ -6,6 +6,8 @@
 
 ### [Trello](https://trello.com/b/n0FfgzXo/anime-list) | [Lucidchart](https://lucid.app/lucidchart/f5dc39c0-5f35-44af-8626-ba056952500f/edit?invitationId=inv_20fde12e-9748-4bac-bd27-d7dd53e3de02)
 
+![Diagram image](/images%20/Screen%20Shot%202022-10-20%20at%208.24.22%20AM.png)
+
 ## **_Description_**
 
 ### My Goal is to create a fully functioning anime list where you can look through a catalog of anime/manga and add them to your list where you can rate them, delete off the list, or update the list.
