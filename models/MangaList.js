@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose')
 
-const WatchListSchema = new Schema(
+const MangaListSchema = new Schema(
   {
     title: { type: String, required: true },
     image: { type: String, required: true },
@@ -8,6 +8,4 @@ const WatchListSchema = new Schema(
   },
   { timestamps: true }
 )
-module.exports = {
-  WatchListSchema
-}
+module.exports = MangaListSchema

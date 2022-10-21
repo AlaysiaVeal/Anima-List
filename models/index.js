@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
-const AnimeListSchema = require('./AnimeList')
+const MangaListSchema = require('./MangaList')
+const ReadListSchema = require('./ReadList')
 
-const Animelist = mongoose.model('AnimeList', AnimeListSchema)
-const Watchlist = mongoose.model('AnimeList', WatchListSchema)
+const Mangalist = mongoose.model('MangaList', MangaListSchema)
+const Readlist = mongoose.model('ReadList', ReadListSchema)
 
 module.exports = {
-  Animelist,
-  Watchlist
+  Mangalist,
+  Readlist
 }
