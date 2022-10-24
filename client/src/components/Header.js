@@ -3,9 +3,17 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/genres">Genres</NavLink>
-        <NavLink to="/list">List</NavLink>
+        <NavLink to="/" className="home">
+          Home
+        </NavLink>
+        <br></br>
+        <NavLink to="/genres" className="genre">
+          Genres
+        </NavLink>
+        <br></br>
+        <NavLink to="/list" className="list">
+          List
+        </NavLink>
       </nav>
     </header>
   )
