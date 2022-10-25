@@ -61,19 +61,17 @@ button {
   height: 3em;
 }
 .genre{
-  float: left;
-  margin-left: 100px;
-  margin-top: -45px;
   color: white;
 }
 .home {
-  margin-top: -500px;
-  text-align: center;
   color: white;
 }
 .list {
-  float: right;
-  margin-top: -90px;
-  margin-right: 100px;
   color: white;
+}
+img {
+  width:500px;
+  height:500px;
+  border:solid, black;
+  border-radius: 10%;
 }

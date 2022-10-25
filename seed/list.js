@@ -9,13 +9,12 @@ const main = async () => {
       title: 'Attack on Titan',
       description: 'random',
       image:
-        'https://upload.wikimedia.org/wikipedia/commons/4/4b/Aloe_vera_flower_inset.png'
+        'https://www.psu.com/wp/wp-content/uploads/2017/11/Attack-On-Titan2.jpg'
     },
     {
       title: 'FairyTail',
       description: 'random',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/4/4b/Aloe_vera_flower_inset.png'
+      image: 'https://animekaizoku.com/wp-content/uploads/2020/03/pic-2.jpg'
     }
   ]
   await Mangalist.insertMany(mangas)
@@ -25,5 +24,4 @@ const run = async () => {
   await main()
   db.close()
 }
-
 run()

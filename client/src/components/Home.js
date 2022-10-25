@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import Header from './Header'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const Home = () => {
@@ -9,8 +8,7 @@ const Home = () => {
   useEffect(() => {
     const getManga = async () => {
       try {
-        let res = await axios.get('http://localhost:3001/lists')
-        console.log(res.data)
+        let res = await axios.get('http://localhost:3001/list')
         setList(res.data)
       } catch (err) {
         console.log(err)
@@ -18,16 +16,21 @@ const Home = () => {
     }
     getManga()
   }, [])
-  /* const handleClick = (e) => {
+  const handleClick = async (e, mId) => {
     e.preventDefault()
-    axios.post('http://localhost:3001/lists', listState)
-    setListState(initialState)
-  } */
+
+    await axios.post('http://localhost:3001/readlist', { manga_id: mId })
+  }
   return (
     <div>
-      {/*       <nav>
-        <Header handleClick={handleClick} />
-      </nav> */}
+      {list?.map((list) => (
+        <div key={list._id}>
+          <h2>{list.title}</h2>
+          <h3>{list.description}</h3>
+          <img src={list.image} />
+          <button onClick={(e) => handleClick(e, list._id)}>+</button>
+        </div>
+      ))}
     </div>
   )
 }
