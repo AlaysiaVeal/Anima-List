@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(logger('dev'))
 
 app.use('/list', routes)
-app.get('/list', async (req, res) => {
+app.get('/lists', async (req, res) => {
   let list = await Readlist.find({})
   res.send(list)
 })

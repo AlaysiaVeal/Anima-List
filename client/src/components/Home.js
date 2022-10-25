@@ -18,16 +18,16 @@ const Home = () => {
     }
     getManga()
   }, [])
-  const handleClick = (e) => {
+  /* const handleClick = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3001/issues', listState)
+    axios.post('http://localhost:3001/lists', listState)
     setListState(initialState)
-  }
+  } */
   return (
-    <div className="Nav">
-      <nav>
+    <div>
+      {/*       <nav>
         <Header handleClick={handleClick} />
-      </nav>
+      </nav> */}
     </div>
   )
 }
