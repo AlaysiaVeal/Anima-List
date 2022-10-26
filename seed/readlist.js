@@ -1,5 +1,7 @@
+const { Types } = require('mongoose')
 const db = require('../db')
 const { Readlist, Mangalist } = require('../models')
+const { obj } = require('../models/MangaList')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
@@ -11,7 +13,7 @@ const main = async () => {
     title: 'Manga List',
     image: 'idk',
     description: 'random',
-    manga_id: [aot[0]._id]
+    manga_id: aot[0]._id
   }
 
   await Readlist.insertMany(reading)

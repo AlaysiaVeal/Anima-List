@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Search from './Search'
 
 const Home = () => {
   const [list, setList] = useState([])
@@ -23,6 +24,9 @@ const Home = () => {
   }
   return (
     <div>
+      <div className="Search-Bar">
+        <Search />
+      </div>
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
