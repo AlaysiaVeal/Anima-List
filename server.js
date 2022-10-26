@@ -17,6 +17,7 @@ app.get('/', (req, res) => res.send('root worked'))
 app.get('/list', controllers.findMangaList)
 app.post('/readlist', controllers.createReadList)
 app.get('/readlist', controllers.findReadList)
+app.delete('/readlist/:id', controllers.deleteListingById)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 

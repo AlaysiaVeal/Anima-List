@@ -16,7 +16,7 @@ const List = () => {
   }, [])
   return (
     <div>
-      <h1>Read List</h1>
+      <h1>My Manga List</h1>
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list?.manga_id.title}</h2>
