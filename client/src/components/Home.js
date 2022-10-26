@@ -30,8 +30,8 @@ const Home = () => {
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
-          <h3>{list.description}</h3>
           <img src={list.image} />
+          <h3>{list.description}</h3>
           <button onClick={(e) => handleClick(e, list._id)}>+</button>
         </div>
       ))}

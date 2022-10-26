@@ -20,8 +20,8 @@ const List = () => {
       {/* {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.manga_id.title}</h2>
-          <h3>{list.manga_id.description}</h3>
           <img src={list.manga_id.image} />
+          <h3>{list.manga_id.description}</h3>
         </div>
       ))} */}
     </div>
