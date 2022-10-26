@@ -17,13 +17,13 @@ const createReadList = async (req, res) => {
   res.send(newList)
 }
 const findReadList = async (req, res) => {
-  let readList = await Readlist.find({})
+  let readList = await Readlist.find({}).populate('manga_id')
   res.send(readList)
 }
-const populateReadList = async (req, res) => {
+/* const populateReadList = async (req, res) => {
   let populate = await Readlist.populate('manga_id')
   res.send(populate)
-}
+} */
 /* app.post('/readlist', async (req, res) => {
   let newList = await readList.create(req.body)
   res.send(newList)
@@ -35,6 +35,5 @@ app.get('/readlist', async (req, res) => {
 module.exports = {
   findMangaList,
   createReadList,
-  findReadList,
-  populateReadList
+  findReadList
 }
