@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Search from './Search'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   const [list, setList] = useState([])
   const initialState = { title: '', image: '', description: '', manga_id: '' }
   const [listState, setListState] = useState(initialState)
@@ -21,6 +23,7 @@ const Home = () => {
     e.preventDefault()
 
     await axios.post('/readlist', { manga_id: mId })
+    navigate('/readlist')
   }
   return (
     <div>
