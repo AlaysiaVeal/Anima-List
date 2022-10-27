@@ -3,21 +3,22 @@ import axios from 'axios'
 
 const List = () => {
   const [list, setList] = useState([])
-  useEffect(() => {
-    const getReadList = async () => {
-      try {
-        let res = await axios.get('/readlist')
-        setList(res.data)
-      } catch (err) {
-        console.log(err)
-      }
+  const getReadList = async () => {
+    try {
+      let res = await axios.get('/readlist')
+      setList(res.data)
+    } catch (err) {
+      console.log(err)
     }
+  }
+  useEffect(() => {
     getReadList()
   }, [])
   const handleClick = async (e, objId) => {
     e.preventDefault()
 
     await axios.delete('/readlist/:id', { _id: objId })
+    getReadList()
   }
   return (
     <div>
