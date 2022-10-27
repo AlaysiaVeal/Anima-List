@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const getManga = async () => {
       try {
-        let res = await axios.get('http://localhost:3001/list')
+        let res = await axios.get('/list')
         setList(res.data)
       } catch (err) {
         console.log(err)
@@ -20,7 +20,7 @@ const Home = () => {
   const handleClick = async (e, mId) => {
     e.preventDefault()
 
-    await axios.post('http://localhost:3001/readlist', { manga_id: mId })
+    await axios.post('/readlist', { manga_id: mId })
   }
   return (
     <div>

@@ -6,7 +6,7 @@ const List = () => {
   useEffect(() => {
     const getReadList = async () => {
       try {
-        let res = await axios.get('http://localhost:3001/readlist')
+        let res = await axios.get('/readlist')
         setList(res.data)
       } catch (err) {
         console.log(err)
@@ -17,7 +17,7 @@ const List = () => {
   const handleClick = async (e, objId) => {
     e.preventDefault()
 
-    await axios.delete('http://localhost:3001/readlist/:id', { _id: objId })
+    await axios.delete('/readlist/:id', { _id: objId })
   }
   return (
     <div>

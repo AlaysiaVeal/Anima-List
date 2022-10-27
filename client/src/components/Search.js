@@ -9,7 +9,7 @@ const Search = () => {
   const getManga = async (e) => {
     e.preventDefault()
     toggleSearched(true)
-    const res = await axios.get('http://localhost:3001/list/:title')
+    const res = await axios.get('/list/:title')
     console.log(res.data)
     setSearchResults(res.data)
     setSearchQuery('')
