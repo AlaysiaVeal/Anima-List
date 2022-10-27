@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Search from './Search'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from '../globals'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -11,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const getManga = async () => {
       try {
-        let res = await axios.get('/list')
+        let res = await axios.get(`${BASE_URL}list`)
         setList(res.data)
       } catch (err) {
         console.log(err)
@@ -22,8 +23,8 @@ const Home = () => {
   const handleClick = async (e, mId) => {
     e.preventDefault()
 
-    await axios.post('/readlist', { manga_id: mId })
-    navigate('/readlist')
+    await axios.post(`${BASE_URL}readlist`, { manga_id: mId })
+    navigate('/list')
   }
   return (
     <div>
