@@ -14,6 +14,11 @@ const List = () => {
     }
     getReadList()
   }, [])
+  const handleClick = async (e, objId) => {
+    e.preventDefault()
+
+    await axios.delete('http://localhost:3001/readlist/:id', { _id: objId })
+  }
   return (
     <div>
       <h1>My Manga List</h1>
@@ -22,6 +27,7 @@ const List = () => {
           <h2>{list?.manga_id.title}</h2>
           <img src={list?.manga_id.image} />
           <h3>{list?.manga_id.description}</h3>
+          <button onClick={(e) => handleClick(e, list._id)}>-</button>
         </div>
       ))}
     </div>

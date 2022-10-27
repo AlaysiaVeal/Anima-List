@@ -19,9 +19,14 @@ const deleteListingById = async (req, res) => {
   let deleteManga = await Readlist.deleteOne(req.params)
   res.send(deleteManga)
 }
+const findMangaById = async (req, res) => {
+  let manga = await Mangalist.find(req.params)
+  res.send(manga)
+}
 module.exports = {
   findMangaList,
   createReadList,
   findReadList,
-  deleteListingById
+  deleteListingById,
+  findMangaById
 }
