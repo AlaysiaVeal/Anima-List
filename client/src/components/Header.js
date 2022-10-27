@@ -3,15 +3,15 @@ const Header = () => {
   return (
     <header>
       <nav className="Nav">
-        <NavLink to="/" className="home">
+        <NavLink to="/" className="nav">
           Home
         </NavLink>
-
-        <NavLink to="/genres" className="genre">
+        <br></br>
+        <NavLink to="/genres" className="nav">
           Genres
         </NavLink>
-
-        <NavLink to="/list" className="list">
+        <br></br>
+        <NavLink to="/list" className="nav">
           List
         </NavLink>
       </nav>

@@ -23,10 +23,15 @@ const findMangaById = async (req, res) => {
   let manga = await Mangalist.find(req.params)
   res.send(manga)
 }
+const updateMangas = async (req, res) => {
+  let mangas = await Mangalist.updateMany({}, { rating: 3 })
+  res.send(mangas)
+}
 module.exports = {
   findMangaList,
   createReadList,
   findReadList,
   deleteListingById,
-  findMangaById
+  findMangaById,
+  updateMangas
 }

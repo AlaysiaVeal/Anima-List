@@ -1,10 +1,7 @@
-import Home from './Home'
-import { NavLink } from 'react-router-dom'
+/* import Home from './Home'
+import {useNavigate} */
 
-const Form = () => {
-  const handleClick = () => {
-    ;<NavLink to="/home"></NavLink>
-  }
+/* const Form = () => {
   return (
     <div id="form">
       <form action="/home">
@@ -15,4 +12,4 @@ const Form = () => {
     </div>
   )
 }
-export default Form
+export default Form */

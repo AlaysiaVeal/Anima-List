@@ -7,8 +7,7 @@ import { BASE_URL } from '../globals'
 const Home = () => {
   const navigate = useNavigate()
   const [list, setList] = useState([])
-  const initialState = { title: '', image: '', description: '', manga_id: '' }
-  const [listState, setListState] = useState(initialState)
+
   useEffect(() => {
     const getManga = async () => {
       try {

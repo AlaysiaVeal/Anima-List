@@ -20,6 +20,7 @@ app.post('/readlist', controllers.createReadList)
 app.get('/readlist', controllers.findReadList)
 app.delete('/readlist/:id', controllers.deleteListingById)
 app.get('/list/:title', controllers.findMangaById)
+app.post('/list', controllers.updateMangas)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 

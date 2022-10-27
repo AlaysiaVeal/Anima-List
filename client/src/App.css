@@ -37,7 +37,7 @@
   }
 }
 body {
-  background-color: pink;
+  background-color: black;
   background-size: cover;
 } 
 #form {
@@ -57,7 +57,7 @@ button {
 .Nav {
   font-size: 40px;
   justify-content: space-between;
-  background-color: palevioletred;
+  background-color: gray;
   height: 3em;
 }
 .genre{
@@ -68,10 +68,34 @@ button {
 }
 .list {
   color: white;
+  float: right;
 }
 img {
   width:500px;
   height:500px;
   border:solid, black;
   border-radius: 10%;
+}
+h1 {
+  color: white;
+}
+h2 {
+  color: white;
+}
+h3{
+  color: white;
+}
+.nav {
+  color: white;
+  float: right;
+  font-size: 20px;
+}
+.Search-Results {
+  font-size: 50px;
+  background-color: red;
+}
+.search-button {
+  background-color: lightslategray;
+  margin-top: 5px;
+
 }

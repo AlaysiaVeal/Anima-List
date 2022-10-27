@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
-const Search = () => {
+const Search = ({ onChange, onSubmit, value }) => {
   const [searchResults, setSearchResults] = useState([])
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -22,15 +22,15 @@ const Search = () => {
 
   return (
     <div className="Search-Results">
-      <form onSubmit={getManga}>
+      <form onSubmit={onSubmit} className="form">
         <input
           type="text"
           name="search"
-          value={searchQuery}
+          value={value}
           placeholder="Search Manga"
-          onChange={handleChange}
+          onChange={onChange}
         ></input>
-        <button type="Submit"></button>
+        <button type="Submit" className="search-button"></button>
       </form>
     </div>
   )
