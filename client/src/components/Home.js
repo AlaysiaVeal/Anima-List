@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <div>
       <div className="Search-Bar">
-        <Search />
+        <Search onChange={searchResults} />
       </div>
       {list?.map((list) => (
         <div key={list._id}>

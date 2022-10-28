@@ -8,7 +8,6 @@ const MangaDetails = () => {
   let { id } = useParams()
   const navigate = useNavigate()
   const [mangaDetails, setMangaDetails] = useState(null)
-
   const getMangaDetails = async () => {
     const res = await axios.get(`${BASE_URL}list/:id`)
     setMangaDetails(res.data.manga)
@@ -25,6 +24,18 @@ const MangaDetails = () => {
     navigate(`/mangadetails/${id}`)
   }
 
+  const buttonClick = async (e) => {
+    e.preventDefault()
+    await axios.put(`${BASE_URL}list/${id}`)
+    getMangaDetails()
+  }
+
+  const dislikeButton = async (e) => {
+    e.preventDefault()
+    await axios.put(`${BASE_URL}declist/${id}`)
+    getMangaDetails()
+  }
+
   return (
     <div>
       <h1>Details</h1>
@@ -32,8 +43,13 @@ const MangaDetails = () => {
         <div key={mangaDetails._id}>
           <img src={mangaDetails?.image} onClick={handleClick} />
           <h2>{mangaDetails?.description}</h2>
-          <img src="../images/heart.png" />
           <h3>rating:{mangaDetails?.rating}</h3>
+          <button className="like" onClick={buttonClick}>
+            Like
+          </button>
+          <button className="dislike" onClick={dislikeButton}>
+            Dislike
+          </button>
         </div>
       ) : (
         <h1>loading</h1>

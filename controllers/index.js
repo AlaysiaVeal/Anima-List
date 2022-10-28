@@ -35,10 +35,32 @@ const findMangasId = async (req, res) => {
   }
 }
 const updateMangas = async (req, res) => {
-  let mangas = await Mangalist.findByIdAndUpdate(req.params.id, req.body, {
-    new: true
-  })
-  res.send(mangas)
+  try {
+    let mangas = await Mangalist.findByIdAndUpdate(
+      req.params.id,
+      { $inc: { rating: 1 } },
+      {
+        new: true
+      }
+    )
+    res.send(mangas)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+const decrementRating = async (req, res) => {
+  try {
+    let mangas = await Mangalist.findByIdAndUpdate(
+      req.params.id,
+      { $inc: { rating: -1 } },
+      {
+        new: true
+      }
+    )
+    res.send(mangas)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 module.exports = {
   findMangaList,
@@ -47,5 +69,6 @@ module.exports = {
   deleteListingById,
   findMangaById,
   updateMangas,
-  findMangasId
+  findMangasId,
+  decrementRating
 }

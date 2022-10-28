@@ -16,13 +16,13 @@ app.use(express.static(`${__dirname}/client/build`))
 
 app.get('/', (req, res) => res.send('root worked'))
 app.get('/list', controllers.findMangaList)
-/* app.put(`/list/:id`, controllers.updateMangas) */
+app.put(`/list/:id`, controllers.updateMangas)
 app.get('/list/:id', controllers.findMangasId)
 app.post('/readlist', controllers.createReadList)
 app.get('/readlist', controllers.findReadList)
 app.delete('/readlist/:id', controllers.deleteListingById)
-/* app.get('/list/:title', controllers.findMangaById) */
-app.post('/list', controllers.updateMangas)
+app.get('/list/:title', controllers.findMangaById)
+app.put('/declist/:id', controllers.decrementRating)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
