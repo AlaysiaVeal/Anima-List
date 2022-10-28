@@ -8,6 +8,22 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate()
   const [list, setList] = useState([])
+  const [searchResults, setSearchResults] = useState([])
+  const [searched, toggleSearched] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const MangaSearch = async (e) => {
+    e.preventDefault()
+    toggleSearched(true)
+    const res = await axios.get(`${BASE_URL}list/:title`)
+    console.log(res.data)
+    setSearchResults(res.data)
+    setSearchQuery('')
+  }
+
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value)
+  }
 
   useEffect(() => {
     const getManga = async () => {
@@ -32,8 +48,16 @@ const Home = () => {
   return (
     <div>
       <div className="Search-Bar">
-        <Search onChange={searchResults} />
+        <Search
+          onChange={handleChange}
+          searchResults={searchResults}
+          onSubmit={MangaSearch}
+          value={searchQuery}
+        />
       </div>
+
+      <div className="Search-Results">{searchResults.map(list?.map)}</div>
+      {searchResults.map(list?.map)}
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
