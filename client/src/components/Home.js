@@ -3,6 +3,7 @@ import axios from 'axios'
 import Search from './Search'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../globals'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -25,6 +26,9 @@ const Home = () => {
     await axios.post(`${BASE_URL}readlist`, { manga_id: mId })
     navigate('/list')
   }
+  const viewManga = (id) => {
+    navigate(`/mangadetails/${id}`)
+  }
   return (
     <div>
       <div className="Search-Bar">
@@ -33,8 +37,9 @@ const Home = () => {
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
-          <img src={list.image} />
-          <h3>{list.description}</h3>
+          <Link to={`/mangadetails/${list._id}`}>
+            <img src={list.image} />
+          </Link>
           <button onClick={(e) => handleClick(e, list._id)}>+</button>
         </div>
       ))}

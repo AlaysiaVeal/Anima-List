@@ -23,8 +23,21 @@ const findMangaById = async (req, res) => {
   let manga = await Mangalist.find(req.params).populate('_id')
   res.send(manga)
 }
+const findMangasId = async (req, res) => {
+  try {
+    let manga = await Mangalist.findOne(req.params)
+    if (manga) {
+      return res.status(200).json({ manga })
+    }
+    return res.status(404).send('Manga with the specified ID does not exists')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 const updateMangas = async (req, res) => {
-  let mangas = await Mangalist.updateMany({}, { rating: 3 })
+  let mangas = await Mangalist.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  })
   res.send(mangas)
 }
 module.exports = {
@@ -33,5 +46,6 @@ module.exports = {
   findReadList,
   deleteListingById,
   findMangaById,
-  updateMangas
+  updateMangas,
+  findMangasId
 }

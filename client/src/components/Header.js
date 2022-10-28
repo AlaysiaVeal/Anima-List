@@ -3,6 +3,7 @@ const Header = () => {
   return (
     <header>
       <nav className="Nav">
+        <div className="app-name">My Manga List</div>
         <NavLink to="/" className="nav">
           Home
         </NavLink>
