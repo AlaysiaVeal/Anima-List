@@ -20,7 +20,7 @@ const deleteListingById = async (req, res) => {
   res.send(deleteManga)
 }
 const findMangaById = async (req, res) => {
-  let manga = await Mangalist.find(req.params).populate('_id')
+  let manga = await Mangalist.find(req.params)
   res.send(manga)
 }
 const findMangasId = async (req, res) => {

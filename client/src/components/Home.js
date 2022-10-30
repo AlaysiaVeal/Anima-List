@@ -12,7 +12,7 @@ const Home = () => {
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
-  const MangaSearch = async (e) => {
+  const mangaSearch = async (e) => {
     e.preventDefault()
     toggleSearched(true)
     const res = await axios.get(`${BASE_URL}list/:title`)
@@ -42,22 +42,20 @@ const Home = () => {
     await axios.post(`${BASE_URL}readlist`, { manga_id: mId })
     navigate('/list')
   }
-  const viewManga = (id) => {
-    navigate(`/mangadetails/${id}`)
-  }
   return (
     <div>
       <div className="Search-Bar">
         <Search
           onChange={handleChange}
           searchResults={searchResults}
-          onSubmit={MangaSearch}
+          onSubmit={mangaSearch}
           value={searchQuery}
         />
       </div>
 
-      <div className="Search-Results">{searchResults.map(list?.map)}</div>
-      {searchResults.map(list?.map)}
+      <div className="Search-Results">
+        {/*{searchResults.map(searchResults?.map)} */}
+      </div>
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
