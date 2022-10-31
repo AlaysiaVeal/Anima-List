@@ -3,25 +3,45 @@ const Manga = require('../models/MangaList')
 const readList = require('../models/ReadList')
 
 const findMangaList = async (req, res) => {
-  let list = await Mangalist.find({})
-  res.send(list)
+  try {
+    let list = await Mangalist.find({})
+    res.send(list)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 
 const createReadList = async (req, res) => {
-  let newList = await Readlist.create(req.body)
-  res.send(newList)
+  try {
+    let newList = await Readlist.create(req.body)
+    res.send(newList)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 const findReadList = async (req, res) => {
-  let readList = await Readlist.find({}).populate('manga_id')
-  res.send(readList)
+  try {
+    let readList = await Readlist.find({}).populate('manga_id')
+    res.send(readList)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 const deleteListingById = async (req, res) => {
-  let deleteManga = await Readlist.deleteOne(req.params)
-  res.send(deleteManga)
+  try {
+    let deleteManga = await Readlist.deleteOne(req.params)
+    res.send(deleteManga)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 const findMangaById = async (req, res) => {
-  let manga = await Mangalist.find(req.params)
-  res.send(manga)
+  try {
+    let manga = await Mangalist.findOne(req.params).populate('_id')
+    res.send(manga)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
 }
 const findMangasId = async (req, res) => {
   try {

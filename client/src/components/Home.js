@@ -54,13 +54,20 @@ const Home = () => {
       </div>
 
       <div className="Search-Results">
-        {/*{searchResults.map(searchResults?.map)} */}
+        {searchResults?.map((results) => (
+          <div key={results._id}>
+            <h2>{results.title}</h2>
+            <Link to={`/mangadetails/${list._id}`}>
+              <img src={results.image} className="images" />
+            </Link>
+          </div>
+        ))}
       </div>
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
           <Link to={`/mangadetails/${list._id}`}>
-            <img src={list.image} />
+            <img src={list.image} className="images" />
           </Link>
           <button onClick={(e) => handleClick(e, list._id)}>+</button>
         </div>
