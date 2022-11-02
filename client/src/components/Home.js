@@ -16,7 +16,6 @@ const Home = () => {
     e.preventDefault()
     toggleSearched(true)
     const res = await axios.get(`${BASE_URL}list/:title`)
-    console.log(res.data)
     setSearchResults(res.data)
     setSearchQuery('')
   }

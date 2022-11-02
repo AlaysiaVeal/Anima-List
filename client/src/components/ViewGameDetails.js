@@ -11,7 +11,6 @@ const MangaDetails = () => {
   const getMangaDetails = async () => {
     const res = await axios.get(`${BASE_URL}list/:id`)
     setMangaDetails(res.data.manga)
-    console.log(res.data.manga)
   }
   useEffect(() => {
     getMangaDetails()

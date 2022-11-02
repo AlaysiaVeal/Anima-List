@@ -5,12 +5,8 @@ import { BASE_URL } from '../globals'
 const List = () => {
   const [list, setList] = useState([])
   const getReadList = async () => {
-    try {
-      let res = await axios.get(`${BASE_URL}readlist`)
-      setList(res.data)
-    } catch (err) {
-      console.log(err)
-    }
+    let res = await axios.get(`${BASE_URL}readlist`)
+    setList(res.data)
   }
   useEffect(() => {
     getReadList()
