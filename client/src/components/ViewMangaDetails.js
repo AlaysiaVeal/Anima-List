@@ -16,7 +16,7 @@ const MangaDetails = () => {
     getMangaDetails()
   }, [])
 
-  const handleClick = async (e, id) => {
+  const handleDetails = async (e, id) => {
     e.preventDefault()
 
     await axios.post(`${BASE_URL}list/:id`, { _id: id })
@@ -40,7 +40,7 @@ const MangaDetails = () => {
       <h1>Details</h1>
       {mangaDetails ? (
         <div key={mangaDetails._id}>
-          <img src={mangaDetails?.image} onClick={handleClick} />
+          <img src={mangaDetails?.image} onClick={handleDetails} />
           <h2>{mangaDetails?.description}</h2>
           <h3>rating:{mangaDetails?.rating}</h3>
           <button className="like" onClick={buttonClick}>
