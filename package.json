@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "## Alaysia Veal",
   "main": "index.js",
+  "proxy": "http://localhost:3001",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && rm -rf build && npm install && npm run build",
