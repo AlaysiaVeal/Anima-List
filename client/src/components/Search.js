@@ -9,7 +9,9 @@ const Search = ({ handleChange, onSubmit }) => {
             type="text"
             handleChange={handleChange}
           />
-          <button type="Submit">search</button>
+          <button type="Submit" className="search-button">
+            search
+          </button>
         </form>
       </div>
     </div>

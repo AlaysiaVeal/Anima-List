@@ -41,7 +41,9 @@ const MangaDetails = () => {
       {mangaDetails ? (
         <div key={mangaDetails._id}>
           <img src={mangaDetails?.image} onClick={handleDetails} />
-          <h2>{mangaDetails?.description}</h2>
+          <div className="details">
+            <h2 id="details">{mangaDetails?.description}</h2>
+          </div>
           <h3>rating:{mangaDetails?.rating}</h3>
           <button className="like" onClick={buttonClick}>
             Like

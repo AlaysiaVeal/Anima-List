@@ -4,17 +4,19 @@ const Header = () => {
     <header>
       <nav className="Nav">
         <div className="app-name">My Manga List</div>
-        <NavLink to="/" className="nav">
-          Home
-        </NavLink>
-        <br></br>
-        <NavLink to="/genres" className="nav">
-          Genres
-        </NavLink>
-        <br></br>
-        <NavLink to="/list" className="nav">
-          List
-        </NavLink>
+        <div className="links">
+          <NavLink to="/" className="nav" id="link1">
+            Home
+          </NavLink>
+          <br></br>
+          <NavLink to="/genres" className="nav" id="link2">
+            Genres
+          </NavLink>
+          <br></br>
+          <NavLink to="/list" className="nav" id="link3">
+            List
+          </NavLink>
+        </div>
       </nav>
     </header>
   )

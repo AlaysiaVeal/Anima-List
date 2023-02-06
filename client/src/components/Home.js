@@ -68,7 +68,12 @@ const Home = () => {
           <Link to={`/mangadetails/${list._id}`}>
             <img src={list.image} className="images" />
           </Link>
-          <button onClick={(e) => handleClick(e, list._id)}>+</button>
+          <button
+            onClick={(e) => handleClick(e, list._id)}
+            className="add-button"
+          >
+            +
+          </button>
         </div>
       ))}
     </div>

@@ -14,7 +14,7 @@
 }
 
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -23,7 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -38,8 +38,13 @@
   }
 }
 body {
-  background-color: black;
+  background-color: orange;
   background-size: cover;
+  margin-bottom: 40px;
+ /*  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px; */
 } 
 #form {
   align-items: center;
@@ -48,18 +53,25 @@ body {
   width: 100px;
   height:100px;
 }
-button {
+.search-button {
   justify-content: center;
   width: 50px;
   height: 30px;
   border-radius: 10%;
+} 
+header{
+  position: fixed;
+  width: 100%;
+  height: auto;
 }
 
 .Nav {
   font-size: 40px;
-  justify-content: space-between;
+  justify-content:center;
   background-color: gray;
   height: 3em;
+  opacity: 50%;
+
 }
 .genre{
   color: white;
@@ -88,8 +100,20 @@ h3{
 }
 .nav {
   color: white;
-  float: right;
   font-size: 20px;
+  text-decoration: none;
+}
+.links{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  margin-top: -45px;;
+}
+#link2{
+  margin-top: -25px;
+}
+#link3{
+  margin-top: -25px;
 }
 .wrapper {
   position: relative;
@@ -116,6 +140,7 @@ h3{
   border: 1px solid grey;
   border-radius: 5px;
   height: 20px;
+  margin-top: 150px;
   width: 50%;
   padding: 2px 23px 2px 30px;
   outline: 0;
@@ -126,12 +151,39 @@ h3{
   border: 1.5px solid #009688;
   background-color: white;
 }
-button {
-  width: 60px;
-  height: 25px;
-}
+
 .images {
   display: flexbox;
 }
+.app-name{
+  opacity: 250%;
+}
+.add-button:hover{
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  background-color: gray;
+}
+@media (max-width: 800px) {
+  body {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+  header{
+  text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  width: auto;
+  }
+  .details{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #details{
 
-
+  }
+}
