@@ -18,12 +18,11 @@ const List = () => {
     getReadList()
   }
   return (
-    <div>
-      <h1>My Manga List</h1>
+    <div className="my-list">
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list?.manga_id.title}</h2>
-          <img src={list?.manga_id.image} />
+          <img src={list?.manga_id.image} className="images" />
           <h3>{list?.manga_id.description}</h3>
           <button onClick={(e) => handleClick(e, list._id)}>-</button>
         </div>

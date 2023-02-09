@@ -62,7 +62,7 @@ body {
 header{
   position: fixed;
   width: 100%;
-  height: auto;
+  margin-bottom: 100px;
 }
 
 .Nav {
@@ -154,6 +154,7 @@ h3{
 
 .images {
   display: flexbox;
+  border: solid black;
 }
 .app-name{
   opacity: 250%;
@@ -186,4 +187,6 @@ h3{
   #details{
 
   }
+}
+.my-list{
 }

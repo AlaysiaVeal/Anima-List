@@ -4,6 +4,7 @@ import Search from './Search'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../globals'
 import { Link } from 'react-router-dom'
+import MangaCard from './MangaCard'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -16,8 +17,10 @@ const Home = () => {
     e.preventDefault()
     toggleSearched(true)
     const res = await axios.get(`${BASE_URL}list/:title`)
-    setSearchResults(res.data)
+    setSearchResults(res.data.results)
+    console.log(res.data.manga)
     setSearchQuery('')
+    navigate('/result')
   }
 
   const handleChange = (event) => {
@@ -45,21 +48,20 @@ const Home = () => {
     <div>
       <div className="Search-Bar">
         <Search
-          onChange={handleChange}
+          handleChange={handleChange}
           searchResults={searchResults}
           onSubmit={mangaSearch}
           value={searchQuery}
         />
       </div>
-
       <div className="Search-Results">
-        {searchResults?.map((results) => (
-          <div key={results._id}>
-            <h2>{results.title}</h2>
-            <Link to={`/mangadetails/${list._id}`}>
-              <img src={results.image} className="images" />
-            </Link>
-          </div>
+        {searchResults?.map((manga) => (
+          <MangaCard
+            key={manga._id}
+            id={manga._id}
+            title={manga.title}
+            image={manga.image}
+          />
         ))}
       </div>
       {list?.map((list) => (
