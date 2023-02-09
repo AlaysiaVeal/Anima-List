@@ -9,7 +9,7 @@ import MangaCard from './MangaCard'
 const Home = () => {
   const navigate = useNavigate()
   const [list, setList] = useState([])
-  const [searchResults, setSearchResults] = useState([])
+  /* const [searchResults, setSearchResults] = useState([])
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -25,7 +25,7 @@ const Home = () => {
 
   const handleChange = (event) => {
     setSearchQuery(event.target.value)
-  }
+  } */
 
   useEffect(() => {
     const getManga = async () => {
@@ -46,7 +46,7 @@ const Home = () => {
   }
   return (
     <div>
-      <div className="Search-Bar">
+      {/* <div className="Search-Bar">
         <Search
           handleChange={handleChange}
           searchResults={searchResults}
@@ -63,7 +63,7 @@ const Home = () => {
             image={manga.image}
           />
         ))}
-      </div>
+      </div> */}
       {list?.map((list) => (
         <div key={list._id}>
           <h2>{list.title}</h2>
