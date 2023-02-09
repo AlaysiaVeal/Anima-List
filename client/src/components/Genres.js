@@ -2,7 +2,6 @@ const Genres = () => {
   return (
     <div>
       <div className="Genres">
-        <h1>Genres</h1>
         <h2>Action</h2>
         <h2>Romance</h2>
         <h2>Horror</h2>

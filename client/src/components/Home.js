@@ -45,7 +45,7 @@ const Home = () => {
     navigate('/list')
   }
   return (
-    <div>
+    <div className="manga">
       {/* <div className="Search-Bar">
         <Search
           handleChange={handleChange}

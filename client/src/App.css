@@ -60,21 +60,31 @@ body {
   border-radius: 10%;
 } 
 header{
-  position: fixed;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   width: 100%;
   margin-bottom: 100px;
 }
-
+.manga{
+  margin-top: 150px; 
+}
 .Nav {
+ /* position: fixed;  
+  width: 100%; */
   font-size: 40px;
   justify-content:center;
   background-color: gray;
   height: 3em;
   opacity: 50%;
-
 }
 .genre{
   color: white;
+}
+.Genres{
+  margin-top: 150px;
 }
 .home {
   color: white;
@@ -172,7 +182,7 @@ h3{
     white-space: nowrap;
     padding: 10px;
   }
-  header{
+  .Nav{
   text-align: center;
   position: sticky;
   position: -webkit-sticky;
@@ -184,9 +194,4 @@ h3{
     display: flex;
     flex-wrap: wrap;
   }
-  #details{
-
-  }
-}
-.my-list{
 }
