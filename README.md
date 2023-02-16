@@ -11,9 +11,8 @@
 
 ## **My Manga List**
 
-![Manga List Image 1](/images%20/Screen%20Shot%202022-10-31%20at%208.42.26%20AM.png)
-![Manga List Image 2](/images%20/Screen%20Shot%202022-10-31%20at%208.42.46%20AM.png)
-![Manga List Image 3](/images%20/Screen%20Shot%202022-10-31%20at%208.43.12%20AM.png)
+![Manga List Image 1](/images%20/Screen%20Shot%202023-02-16%20at%206.30.15%20PM.png)
+![Manga List Image 2](/images%20/Screen%20Shot%202023-02-16%20at%206.30.53%20PM.png)
 
 ## **_Description_**
 
