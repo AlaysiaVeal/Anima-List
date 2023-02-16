@@ -27,7 +27,7 @@ const Home = () => {
     setSearchQuery(event.target.value)
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     const getManga = async () => {
       try {
         let res = await axios.get(`${BASE_URL}list`)
@@ -37,10 +37,22 @@ const Home = () => {
       }
     }
     getManga()
+  }, []) */
+  useEffect(() => {
+    const getManga = async () => {
+      try {
+        let res = await axios.get(`https://api.mangadex.org/manga/random`)
+        console.log(res.data)
+        /* let attribute = res.data.attributes
+        console.log(attribute) */
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getManga()
   }, [])
   const handleClick = async (e, mId) => {
     e.preventDefault()
-
     await axios.post(`${BASE_URL}readlist`, { manga_id: mId })
     navigate('/list')
   }
@@ -55,23 +67,23 @@ const Home = () => {
         />
       </div>
       <div className="Search-Results">
-        {searchResults?.map((manga) => (
+        {searchResults?.map((results) => (
           <MangaCard
-            key={manga._id}
-            id={manga._id}
-            title={manga.title}
-            image={manga.image}
+            key={results._id}
+            id={results._id}
+            title={results.title}
+            image={results.image}
           />
         ))}
       </div>
-      {list?.map((list) => (
-        <div key={list._id}>
-          <h2>{list.title}</h2>
-          <Link to={`/mangadetails/${list._id}`}>
-            <img src={list.image} className="images" />
+      {list?.map((data) => (
+        <div key={data.id}>
+          <h2>{data.attributes.title}</h2>
+          <Link to={`/mangadetails/${data._id}`}>
+            <img src={data.fileName} className="images" />
           </Link>
           <button
-            onClick={(e) => handleClick(e, list._id)}
+            onClick={(e) => handleClick(e, data.id)}
             className="add-button"
           >
             +
