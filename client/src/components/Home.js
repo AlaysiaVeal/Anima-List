@@ -9,6 +9,7 @@ import MangaCard from './MangaCard'
 const Home = () => {
   const navigate = useNavigate()
   const [list, setList] = useState([])
+  const [image, setImage] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -28,29 +29,45 @@ const Home = () => {
   }
 
   /* useEffect(() => {
-    const getManga = async () => {
+    const getMangaCover = async () => {
       try {
-        let res = await axios.get(`${BASE_URL}list`)
-        setList(res.data)
+        let res = await axios.get(`https://api.mangadex.org/cover`)
+        console.log(res.data.data)
+        setList(res.data.data)
       } catch (err) {
         console.log(err)
       }
     }
-    getManga()
+    getMangaCover()
   }, []) */
+
   useEffect(() => {
     const getManga = async () => {
       try {
-        let res = await axios.get(`https://api.mangadex.org/manga/random`)
-        console.log(res.data)
-        /* let attribute = res.data.attributes
-        console.log(attribute) */
+        let res = await axios.get(
+          `https://api.mangadex.org/manga?includes[]=cover_art`
+        )
+        console.log(res.data.data)
+        setList(res.data.data)
       } catch (err) {
         console.log(err)
       }
     }
     getManga()
+    const mangaCover = async (mId, file) => {
+      let res = await axios.get(
+        `https://uploads.mangadex.org/covers/${mId}/${file}`,
+        { id: mId },
+        { fileName: file }
+      )
+      const covers = res.data.data.map((cover) => cover.attributes.fileName)
+      console.log(covers)
+      console.log(res.data.data)
+      setImage(covers)
+    }
+    mangaCover()
   }, [])
+
   const handleClick = async (e, mId) => {
     e.preventDefault()
     await axios.post(`${BASE_URL}readlist`, { manga_id: mId })
@@ -78,10 +95,12 @@ const Home = () => {
       </div>
       {list?.map((data) => (
         <div key={data.id}>
-          <h2>{data.attributes.title}</h2>
-          <Link to={`/mangadetails/${data._id}`}>
-            <img src={data.fileName} className="images" />
-          </Link>
+          <h2>{data.attributes.title.en}</h2>
+          {image?.map((datas) => (
+            <div key={datas}>
+              <img src={datas} className="images" />
+            </div>
+          ))}
           <button
             onClick={(e) => handleClick(e, data.id)}
             className="add-button"
@@ -90,6 +109,11 @@ const Home = () => {
           </button>
         </div>
       ))}
+      {/* {image?.map((attributes) => (
+        <div key={attributes.id}>
+          <img src={attributes.filename} className="images" />
+        </div>
+      ))} */}
     </div>
   )
 }
