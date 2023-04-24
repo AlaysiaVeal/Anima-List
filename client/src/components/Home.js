@@ -28,44 +28,18 @@ const Home = () => {
     setSearchQuery(event.target.value)
   }
 
-  /* useEffect(() => {
-    const getMangaCover = async () => {
-      try {
-        let res = await axios.get(`https://api.mangadex.org/cover`)
-        console.log(res.data.data)
-        setList(res.data.data)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    getMangaCover()
-  }, []) */
-
   useEffect(() => {
     const getManga = async () => {
       try {
         let res = await axios.get(
           `https://api.mangadex.org/manga?includes[]=cover_art`
         )
-        console.log(res.data.data)
         setList(res.data.data)
       } catch (err) {
         console.log(err)
       }
     }
     getManga()
-    const mangaCover = async (mId, file) => {
-      let res = await axios.get(
-        `https://uploads.mangadex.org/covers/${mId}/${file}`,
-        { id: mId },
-        { fileName: file }
-      )
-      const covers = res.data.data.map((cover) => cover.attributes.fileName)
-      console.log(covers)
-      console.log(res.data.data)
-      setImage(covers)
-    }
-    mangaCover()
   }, [])
 
   const handleClick = async (e, mId) => {
@@ -96,9 +70,12 @@ const Home = () => {
       {list?.map((data) => (
         <div key={data.id}>
           <h2>{data.attributes.title.en}</h2>
-          {image?.map((datas) => (
-            <div key={datas}>
-              <img src={datas} className="images" />
+          {image?.map((data) => (
+            <div key={data}>
+              <img
+                src={data.relationships.attributes.fileName}
+                className="images"
+              />
             </div>
           ))}
           <button
@@ -109,11 +86,6 @@ const Home = () => {
           </button>
         </div>
       ))}
-      {/* {image?.map((attributes) => (
-        <div key={attributes.id}>
-          <img src={attributes.filename} className="images" />
-        </div>
-      ))} */}
     </div>
   )
 }
